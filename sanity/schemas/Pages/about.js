@@ -1,6 +1,4 @@
-export default 
-(
-  {
+export default {
   name: 'about',
   title: 'About Page',
   type: 'document',
@@ -9,31 +7,36 @@ export default
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
     },
     {
       name: 'description',
       title: 'Description',
       type: 'text',
-      validation: Rule => Rule.required()
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'image',
       title: 'Image',
       type: 'image',
       options: {
-        hotspot: true
-      }
+        hotspot: true,
+      },
     },
     {
       name: 'body',
       title: 'Body',
       type: 'array',
-      of: [
-        { type: 'block' },
-        { type: 'image' }
-      ]
-    }
-  ]
-}
-)
+      of: [{ type: 'block' }, { type: 'image' }],
+    },
+  ],
+};
